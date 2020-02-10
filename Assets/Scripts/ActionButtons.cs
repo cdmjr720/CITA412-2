@@ -16,9 +16,9 @@ public class ActionButtons : MonoBehaviour
         Press();
     }
 
-    void Press()
+    public void Press()
     {
-        int press = Random.Range(-500, 500);
+        int press = Random.Range(-250, 500);
         if (press >= -500)
         {
             Debug.Log(press);
