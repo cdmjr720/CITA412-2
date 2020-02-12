@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class BeetleSpawner : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private float waitTime = 4.0f;
+    private float timer = 0.0f;
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        
+        timer += Time.deltaTime;
+        if (timer > waitTime)
+        {
+            // Remove the recorded 2 seconds.
+            timer = timer - waitTime;
+            Debug.Log("time up");
+        }
     }
 }
