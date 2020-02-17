@@ -9,13 +9,10 @@ public class ActionButtons : MonoBehaviour
     private float timeSinceClicked = Mathf.Infinity;
 
     [SerializeField] GameObject button;
-
-    //[SerializeField] Button sciButton;
-    //GameObject button;
     
     public void OnPressPest()
     {
-        Press();
+        PestPress();
         timeSinceClicked = 0f;
         button.SetActive(false);
 
@@ -23,13 +20,14 @@ public class ActionButtons : MonoBehaviour
 
     public void OnPressSci()
     {
-        Press();
+        SciPress();
         timeSinceClicked = 0f;
+        button.SetActive(false);
 
     }
 
-    public void Press()
-    { 
+    public void SciPress()
+    {
         int press = Random.Range(-50, 500);
         if (timeSinceClicked > 4.0f)
         {
@@ -42,10 +40,24 @@ public class ActionButtons : MonoBehaviour
         {
             Debug.Log("cannot click");
         }
-
     }
 
-    //test comment for sourcetree
+        public void PestPress()
+        {
+            int press = Random.Range(-50, 500);
+            if (timeSinceClicked > 4.0f)
+            {
+                if (press >= -50)
+                {
+                    Debug.Log(press);
+                }
+            }
+            else
+            {
+                Debug.Log("cannot click");
+            }
+        }
+
 
 
     public void Update()
