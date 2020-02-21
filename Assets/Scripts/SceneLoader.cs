@@ -2,17 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Beetle.Action;
+using Beetle.Spawn;
 
-public class SceneLoader : MonoBehaviour
+namespace Beetle.SceneManagement
 {
-    public void LoadNextScene()
+    public class SceneLoader : MonoBehaviour
     {
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currentSceneIndex + 1);
+        public int beetleCount = FindObjectOfType<BeetleSpawner>().beetleCount;
+        
+    public void LoadNextScene()
+        {
+            int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadScene(currentSceneIndex + 1);
+        }
+
+
+        public void quitGame()
+        {
+            Application.Quit();
+        }
     }
 
-    public void quitGame()
-    {
-        Application.Quit();
-    }
 }

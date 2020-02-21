@@ -164,16 +164,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe4051037ce35c647813394e8493c56b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitTime: 1
+  press: 0
+  waitTime: 3
   beetle: {fileID: 5218900123287819702, guid: 7df659c8419d7444280f6e7133a64bc3, type: 3}
   spawnTimer: 1
   spawnPoint: {fileID: 1242098490}
   distance: 0
   beetlesToclone: 1
-  beetleCount: 300
+  beetleCount: 1
   spawnPoint2: {fileID: 0}
   spawnBeetleBool: 0
   target: {fileID: 0}
+  win: 0
+  lose: 0
 --- !u!1 &244165355
 GameObject:
   m_ObjectHideFlags: 0
@@ -415,7 +418,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb5ecc2b2aaf71c4b877adc138b93f92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pressed: 0
   button: {fileID: 2022595795}
+  press: 10
 --- !u!4 &854111443
 Transform:
   m_ObjectHideFlags: 0
@@ -525,7 +530,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb5ecc2b2aaf71c4b877adc138b93f92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pressed: 0
   button: {fileID: 244165355}
+  press: 10
 --- !u!4 &942901482
 Transform:
   m_ObjectHideFlags: 0

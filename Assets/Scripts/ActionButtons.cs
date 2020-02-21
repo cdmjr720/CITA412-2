@@ -3,53 +3,78 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Beetle.Spawn;
+using Beetle.SceneManagement;
 
-public class ActionButtons : MonoBehaviour
-{ 
-    private float timeSinceClicked = Mathf.Infinity;
-
-    [SerializeField] GameObject button;
-    
-    public void OnPressPest()
+namespace Beetle.Action
+{
+    public class ActionButtons : MonoBehaviour
     {
-        PestPress();
-        timeSinceClicked = 0f;
-        button.SetActive(false);
 
-    }
+        public bool pressed = false;
+        private float timeSinceClicked = Mathf.Infinity;
+        [SerializeField] GameObject button;
+        public int press;
 
-    public void OnPressSci()
-    {
-        SciPress();
-        timeSinceClicked = 0f;
-        button.SetActive(false);
-
-    }
-
-    public void SciPress()
-    {
-        int press = Random.Range(-50, 500);
-        if (timeSinceClicked > 4.0f)
+        public void PressPress()
         {
-            if (press >= -50)
+            press = Random.Range(-50, 500);
+            pressed = true;
+        }
+
+        public void OnPressPest()
+        {
+            PestPress();
+            timeSinceClicked = 0f;
+            button.SetActive(false);
+
+        }
+
+        public void OnPressSci()
+        {
+            SciPress();
+            timeSinceClicked = 0f;
+            button.SetActive(false);
+
+        }
+
+        public void SciPress()
+        {
+            PressPress();
+
+            if (timeSinceClicked > 4.0f)
             {
-                Debug.Log(press);
-            }
-        }
-        else
-        {
-            Debug.Log("cannot click");
-        }
+
+                if (press > 0)
+                {
+                    Debug.Log(press);
+                    //pressed = true;
+                                
     }
+}
+            else
+            {
+                Debug.Log("cannot click");
+            }
+
+        }
+
+        //public int beetleCount = FindObjectOfType<BeetleSpawner>().beetleCount;
+
 
         public void PestPress()
         {
-            int press = Random.Range(-50, 500);
+            //            int press = Random.Range(-50, 500);
+            PressPress();
+
+
             if (timeSinceClicked > 4.0f)
             {
-                if (press >= -50)
+                if (press > 0)
                 {
                     Debug.Log(press);
+                    pressed = true;
+
                 }
             }
             else
@@ -60,14 +85,17 @@ public class ActionButtons : MonoBehaviour
 
 
 
-    public void Update()
-    {
-        timeSinceClicked += Time.deltaTime;
-        if (timeSinceClicked >4f && !button.active)
+        public void Update()
         {
-            button.SetActive(true);
+            timeSinceClicked += Time.deltaTime;
+            if (timeSinceClicked > 4f && !button.active)
+            {
+                button.SetActive(true);
+            }
         }
+
+
     }
 
-
 }
+
