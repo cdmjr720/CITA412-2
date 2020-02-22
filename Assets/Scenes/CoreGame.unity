@@ -131,6 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 229471165}
   - component: {fileID: 229471166}
+  - component: {fileID: 229471167}
   m_Layer: 0
   m_Name: BeetleSpawner
   m_TagString: Untagged
@@ -164,19 +165,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe4051037ce35c647813394e8493c56b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  press: 0
   waitTime: 3
   beetle: {fileID: 5218900123287819702, guid: 7df659c8419d7444280f6e7133a64bc3, type: 3}
   spawnTimer: 1
-  spawnPoint: {fileID: 1242098490}
-  distance: 0
   beetlesToclone: 1
-  beetleCount: 1
-  spawnPoint2: {fileID: 0}
-  spawnBeetleBool: 0
-  target: {fileID: 0}
-  win: 0
-  lose: 0
+  beetleCount: 0
+  spawnPoint: {fileID: 1242098490}
+--- !u!114 &229471167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229471164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1da81ce5d4c64f244964f05deae2d504, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beetleCount: 0
+  button: {fileID: 0}
 --- !u!1 &244165355
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,6 +268,17 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 942901481}
+        m_MethodName: OnPressPest
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 942901483}
         m_MethodName: OnPressPest
         m_Mode: 1
         m_Arguments:
@@ -399,6 +418,7 @@ GameObject:
   m_Component:
   - component: {fileID: 854111443}
   - component: {fileID: 854111442}
+  - component: {fileID: 854111444}
   m_Layer: 0
   m_Name: ScienceButton
   m_TagString: Untagged
@@ -418,9 +438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb5ecc2b2aaf71c4b877adc138b93f92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pressed: 0
   button: {fileID: 2022595795}
-  press: 10
 --- !u!4 &854111443
 Transform:
   m_ObjectHideFlags: 0
@@ -435,6 +453,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &854111444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854111441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1da81ce5d4c64f244964f05deae2d504, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beetleCount: 0
+  button: {fileID: 854111441}
 --- !u!1 &885818813
 GameObject:
   m_ObjectHideFlags: 0
@@ -511,6 +543,7 @@ GameObject:
   m_Component:
   - component: {fileID: 942901482}
   - component: {fileID: 942901481}
+  - component: {fileID: 942901483}
   m_Layer: 0
   m_Name: PesticideButton
   m_TagString: Untagged
@@ -530,9 +563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb5ecc2b2aaf71c4b877adc138b93f92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pressed: 0
   button: {fileID: 244165355}
-  press: 10
 --- !u!4 &942901482
 Transform:
   m_ObjectHideFlags: 0
@@ -547,6 +578,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &942901483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 942901480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1da81ce5d4c64f244964f05deae2d504, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beetleCount: 0
+  button: {fileID: 942901480}
 --- !u!1 &1155899643
 GameObject:
   m_ObjectHideFlags: 0
@@ -1002,6 +1047,17 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 854111442}
+        m_MethodName: OnPressSci
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 854111444}
         m_MethodName: OnPressSci
         m_Mode: 1
         m_Arguments:

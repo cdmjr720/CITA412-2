@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Beetle.Action;
 using Beetle.Spawn;
+using Beetle.Count;
 
 namespace Beetle.SceneManagement
 {
