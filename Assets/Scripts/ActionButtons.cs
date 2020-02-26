@@ -12,11 +12,14 @@ namespace Beetle.Action
     public class ActionButtons : MonoBehaviour
     {
         private float timeSinceClicked = Mathf.Infinity;
-        [SerializeField] GameObject button;
+        [SerializeField] GameObject button = null;
 
         public void Start()
         {
             int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+            timeSinceClicked = 0f;
+            button.SetActive(false);
+
         }
 
         public void OnPressPest()
@@ -34,7 +37,7 @@ namespace Beetle.Action
         public void Update()
         {
             timeSinceClicked += Time.deltaTime;
-            if (timeSinceClicked > 4f && !button.active)
+            if (timeSinceClicked > 3f && !button.active)
             {
                 button.SetActive(true);
             }

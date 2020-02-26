@@ -10,7 +10,6 @@ namespace Beetle.SceneManagement
 {
     public class SceneLoader : MonoBehaviour
     {
-        public int beetleCount = FindObjectOfType<BeetleSpawner>().beetleCount;
         
     public void LoadNextScene()
         {

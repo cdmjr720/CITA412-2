@@ -5,42 +5,78 @@ using UnityEngine.SceneManagement;
 using Beetle.Action;
 using Beetle.Spawn;
 using Beetle.SceneManagement;
+using TMPro;
+
 
 namespace Beetle.Count
 {
     public class Score : MonoBehaviour
     {
-        public int beetleCount;
+
+        public int beetleCount = 0;
         int press;
         [SerializeField] GameObject button;
+
+
+        [SerializeField] float waitTime = 0;
+        public GameObject beetle;
+        public float spawnTimer;
+        public float beetlesToclone;
+        public GameObject spawnPoint;
+        [SerializeField] TextMeshProUGUI beetleText;
 
 
         void Start()
         {
             int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-            //beetleCount = 
         }
 
-        void BeetleCounter()
-        {
-            if (beetleCount >= 0)
-            {
-                beetleCount = FindObjectOfType<BeetleSpawner>().beetleCount;
-            }
-            else
-            {
-                beetleCount = FindObjectOfType<BeetleSpawner>().beetleCount;
-            }
-        }
 
         void Update()
         {
-            BeetleCounter();
+            beetlesToclone = 1;
+            WinOrLose();
+            beetleText.text = beetleCount.ToString();
+
+            spawnTimer += Time.deltaTime;
+            if (spawnTimer > waitTime)
+            {
+                spawnTimer = spawnTimer - waitTime;
+
+                for (int i = 0; i < beetlesToclone; i++)
+                {
+                    SpawnBeetle();
+
+                }
+
+            }
+        }
+
+        public void SpawnBeetle()
+        {
+
+            if (beetleCount >= 0)
+            {
+                GameObject clone;
+
+                spawnPoint = beetle;
+                clone = Instantiate(spawnPoint, transform.position, transform.rotation); //added spawnPoint to code
+                clone.SetActive(true);
+                beetleCount++;
+                Debug.Log(beetleCount);
+                transform.position = new Vector3(Random.Range(0.1f, 20f), Random.Range(0.1f, 10f), -7);
+            }
         }
 
         public void PressPress()
         {
-            press = Random.Range(-50, 500);
+            //if (beetleCount > 250)
+            //{
+                press = 125;
+            Debug.Log(press);
+            Debug.Log(beetleCount);
+
+            //}
         }
 
         public void LoadLoseScene()
@@ -60,12 +96,9 @@ namespace Beetle.Count
                 LoadWinScene();
             }
 
-            if (beetleCount >= 2000)
+            if (beetleCount >= 500)
             {
-                if (beetleCount >= 2000)
-                {
-                    LoadLoseScene();
-                }
+                LoadLoseScene();
             }
         }
 
@@ -73,28 +106,26 @@ namespace Beetle.Count
         {
 
             PressPress();
-            BeetleCounter();
+            //BeetleCounter();
             if (press > 0)
             {
                 Debug.Log(press);
                 beetleCount = beetleCount - press;
                 Debug.Log(beetleCount);
             }
-            WinOrLose();
 
         }
 
         public void OnPressSci()
         {
             PressPress();
-            BeetleCounter();
+            //BeetleCounter();
             if (press > 0)
             {
                 Debug.Log(press);
                 beetleCount = beetleCount - press;
                 Debug.Log(beetleCount);
             }
-            WinOrLose();
 
         }
     }
