@@ -1,27 +1,26 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-using Beetle.Action;
-using Beetle.Spawn;
-using Beetle.Count;
+
+//Scene Loader for main screen to advance into game
 
 namespace Beetle.SceneManagement
 {
     public class SceneLoader : MonoBehaviour
+
     {
-        
-    public void LoadNextScene()
+        //function to load the next scene
+        public void LoadNextScene()
         {
+            //creates the scene index as an int
             int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+            //calls the next active scene
             SceneManager.LoadScene(currentSceneIndex + 1);
         }
-
-
+        
+        //function to quit the game
         public void quitGame()
         {
             Application.Quit();
         }
     }
-
 }
