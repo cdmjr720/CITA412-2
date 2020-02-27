@@ -16,7 +16,16 @@ namespace Beetle.SceneManagement
             //calls the next active scene
             SceneManager.LoadScene(currentSceneIndex + 1);
         }
-        
+
+        //function to main menu
+        public void LoadMenu()
+        {
+            //creates the scene index as an int
+            int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+            //calls the next active scene
+            SceneManager.LoadScene(0);
+        }
+
         //function to quit the game
         public void quitGame()
         {
