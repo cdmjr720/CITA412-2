@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using Beetle.Action;
 
 //all beetle spawning and removal is placed inside of this script
 
@@ -10,7 +11,9 @@ namespace Beetle.Count
         //creates beetleCount variable, the most important variable in the game, and sets it at 0
         public int beetleCount = 0;
         //creates press variable to count how many beetles are removed
-        int press;
+        public int press;
+
+       // public int beetleCount2;
 
         //[SerializeField] GameObject button;
 
@@ -28,12 +31,19 @@ namespace Beetle.Count
         public GameObject spawnPoint;
         public GameObject clone;
 
+        //creates isPressed variables from ActionButtons script
+        public ActionButtons sciIsPressed;
+        public ActionButtons pestIsPressed;
+
         void Start()
         {
             //calls the SceneManager script in order to move to Win or Loss screens
             int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+            //calls "Faster" function to repeat
+            InvokeRepeating("Faster", 0f, .001f);
         }
-        
+
         void Update()
         {
             //sets beetlesToClone at 1 and calls the WinOrLose function once per frame to check for Win/Loss conditions
@@ -65,19 +75,34 @@ namespace Beetle.Count
                 //increases the beetleCount by number spawned
                 beetleCount++;
                 
-                Debug.Log(beetleCount);
+                //Debug.Log(beetleCount);
                 //sets the position of the spawn a certain distance from previous beetle
                 transform.position = new Vector3(Random.Range(0.1f, 20f), Random.Range(0.1f, 10f), -7);
             }
         }
 
+        //attempt to create a void that will update faster than update
+        public void Faster()
+        {
+            //beetleCount2 = beetleCount;
+
+            //Debug.Log(beetleCount2);
+        }
+
         //creates an overall "Press" function
         public void PressPress()
         {
-            //sets "press" at 125, to remove 125 beetles per press
-            press = 125;
-            Debug.Log(press);
-            Debug.Log(beetleCount);
+            //if buttons are pressed, lowers beetleCount by 125
+            if (sciIsPressed.isPressed)
+            {
+                beetleCount = beetleCount - 125;
+                Debug.Log(beetleCount);
+            }
+            if (pestIsPressed.isPressed)
+            {
+                beetleCount = beetleCount - 125;
+                Debug.Log(beetleCount);
+            }
         }
 
         //function to load the Lose Scene
@@ -105,37 +130,6 @@ namespace Beetle.Count
             if (beetleCount >= 500)
             {
                 LoadLoseScene();
-            }
-        }
-
-        //creates function for pressing Pesticide button
-        public void OnPressPest()
-        {
-            //calls Press function
-            PressPress();
-            //if "press" variable is over 0, beetleCount is lowered by that number
-            if (press > 0)
-            {
-                Debug.Log(press);
-                beetleCount = beetleCount - press;
-                //Destroy(clone);
-                Debug.Log(beetleCount);
-            }
-
-        }
-
-        //creates function for pressing Science button
-        public void OnPressSci()
-        {
-            //calls Press function
-            PressPress();
-            //if "press" variable is over 0, beetleCount is lowered by that number
-            if (press > 0)
-            {
-                Debug.Log(press);
-                beetleCount = beetleCount - press;
-                //Destroy(clone);
-                Debug.Log(beetleCount);
             }
         }
     }

@@ -205,7 +205,7 @@ GameObject:
   m_Component:
   - component: {fileID: 229471165}
   - component: {fileID: 229471167}
-  - component: {fileID: 229471168}
+  - component: {fileID: 229471166}
   m_Layer: 0
   m_Name: BeetleSpawner
   m_TagString: Untagged
@@ -227,6 +227,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &229471166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229471164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b36901c1dacff24fac15118f71271fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beetleCount: 0
+  pressTrue: 0
+  press: 0
+  sciIsPressed: {fileID: 854111442}
+  pestIsPressed: {fileID: 942901481}
+  beetleText: {fileID: 230878715}
 --- !u!114 &229471167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,27 +258,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beetleCount: 0
-  button: {fileID: 0}
+  press: 0
+  spawnTimer: 20
   waitTime: 0.075
   beetle: {fileID: 5218900123287819702, guid: 7df659c8419d7444280f6e7133a64bc3, type: 3}
-  spawnTimer: 20
   beetlesToclone: 1
   spawnPoint: {fileID: 0}
   clone: {fileID: 0}
---- !u!114 &229471168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 229471164}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 857c115efb64aa04980adc17c139659b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  beetleText: {fileID: 230878715}
-  beetleCount: 0
+  sciIsPressed: {fileID: 854111442}
+  pestIsPressed: {fileID: 942901481}
 --- !u!1 &230878712
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,7 +516,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 942901483}
-        m_MethodName: OnPressPest
+        m_MethodName: PressPress
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -714,7 +720,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 792216484}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.1, y: 5.9, z: 0}
+  m_LocalPosition: {x: 6, y: 5.9, z: 0}
   m_LocalScale: {x: 3.6223435, y: 3.7585015, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -751,7 +757,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyClone: []
+  isPressed: 0
   button: {fileID: 2022595795}
+  beetleCount2: 0
 --- !u!4 &854111443
 Transform:
   m_ObjectHideFlags: 0
@@ -779,13 +787,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beetleCount: 0
-  button: {fileID: 854111441}
+  press: 0
+  spawnTimer: 20
   waitTime: 0.075
   beetle: {fileID: 5218900123287819702, guid: 7df659c8419d7444280f6e7133a64bc3, type: 3}
-  spawnTimer: 20
   beetlesToclone: 0
   spawnPoint: {fileID: 0}
   clone: {fileID: 0}
+  sciIsPressed: {fileID: 854111442}
+  pestIsPressed: {fileID: 942901481}
 --- !u!1 &885818813
 GameObject:
   m_ObjectHideFlags: 0
@@ -883,7 +893,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyClone: []
+  isPressed: 0
   button: {fileID: 244165355}
+  beetleCount2: 0
 --- !u!4 &942901482
 Transform:
   m_ObjectHideFlags: 0
@@ -911,13 +923,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beetleCount: 0
-  button: {fileID: 942901480}
+  press: 0
+  spawnTimer: 20
   waitTime: 0.075
   beetle: {fileID: 5218900123287819702, guid: 7df659c8419d7444280f6e7133a64bc3, type: 3}
-  spawnTimer: 20
   beetlesToclone: 0
   spawnPoint: {fileID: 0}
   clone: {fileID: 0}
+  sciIsPressed: {fileID: 854111442}
+  pestIsPressed: {fileID: 942901481}
 --- !u!1 &1155899643
 GameObject:
   m_ObjectHideFlags: 0
@@ -1304,7 +1318,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 854111444}
-        m_MethodName: OnPressSci
+        m_MethodName: PressPress
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
