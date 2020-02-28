@@ -8,9 +8,12 @@ namespace Beetle.Count
 {
     public class BeetleCount : MonoBehaviour
     {
+        //variable for beetleCount
         public int beetleCount;
+        //bool to return pressTrue as false
         public bool pressTrue = false;
-        public int press;
+        //variable for press set at 125
+        [SerializeField] int press;
 
         //creates isPressed variables from ActionButtons script
         public ActionButtons sciIsPressed;
@@ -21,6 +24,7 @@ namespace Beetle.Count
 
         void Start()
         {
+            //calls the Faster method 1 frame after start repeating at 0.002 frames after
             InvokeRepeating("Faster", 1f, 0.002f);
         }
 
@@ -37,21 +41,20 @@ namespace Beetle.Count
             Press();
             //adds beetleCount to text on game screen
             beetleText.text = beetleCount.ToString();
-
         }
 
         //function to check for button press
         public void Press()
         {
-            //if buttons are pressed, beetleCount lowers by 125
+            //if buttons are pressed, beetleCount lowers by value of press
             if (sciIsPressed.isPressed)
             {
-                beetleCount = beetleCount - 125;
+                beetleCount = beetleCount - press;
                 Debug.Log(beetleCount);
             }
             if (pestIsPressed.isPressed)
             {
-                beetleCount = beetleCount - 125;
+                beetleCount = beetleCount - press;
                 Debug.Log(beetleCount);
             }
         }

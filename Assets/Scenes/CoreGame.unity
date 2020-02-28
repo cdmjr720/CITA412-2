@@ -241,7 +241,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beetleCount: 0
   pressTrue: 0
-  press: 0
+  press: 125
   sciIsPressed: {fileID: 854111442}
   pestIsPressed: {fileID: 942901481}
   beetleText: {fileID: 230878715}
@@ -258,7 +258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beetleCount: 0
-  press: 0
+  press: 125
   spawnTimer: 20
   waitTime: 0.075
   beetle: {fileID: 100899299249812712, guid: 7df659c8419d7444280f6e7133a64bc3, type: 3}

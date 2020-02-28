@@ -13,7 +13,6 @@ namespace Beetle.Action
         //attempt to destroy GameOjects
         public GameObject[] destroyClone;
 
-
         //creates bool isPressed to be called in other scripts
         public bool isPressed;
 
@@ -28,13 +27,13 @@ namespace Beetle.Action
         {
             //calls "Faster" method
             InvokeRepeating("Faster", 0f, 0.25f);
+
             //sets isPressed bool at false
             isPressed = false;
 
             //Sets the buttons to be inactive until timeSinceClicked is 0 to start the game
             timeSinceClicked = 0f;
             button.SetActive(false);
-            //destroyClone = GameObject.FindGameObjectsWithTag("Beetle");
         }
 
         //function for Pesticide Button
@@ -43,13 +42,8 @@ namespace Beetle.Action
             //Sets the button to be inactive until timeSinceclicked is 0 after clicking
             timeSinceClicked = 0f;
             button.SetActive(false);
+            //returns isPressed as true if pressed
             isPressed = true;
-
-            //attempts at destroying game object
-            //foreach (GameObject beetle in destroyClone)
-            //{
-            //    Destroy(beetle);
-            //}
         }
 
         //function for Science Button
@@ -58,13 +52,8 @@ namespace Beetle.Action
             //Sets the button to be inactive until timeSinceclicked is 0 after clicking
             timeSinceClicked = 0f;
             button.SetActive(false);
+            //returns isPressed as true if pressed
             isPressed = true;
-
-            //attempts at destroying game object
-            //foreach (GameObject beetle in destroyClone)
-            //{
-            //    Destroy(beetle);
-            //}
         }
 
         public void Update()

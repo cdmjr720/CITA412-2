@@ -25,11 +25,5 @@ namespace Beetle.SceneManagement
             //calls the next active scene
             SceneManager.LoadScene(0);
         }
-
-        //function to quit the game
-        public void quitGame()
-        {
-            Application.Quit();
-        }
     }
 }
