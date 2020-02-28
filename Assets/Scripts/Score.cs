@@ -22,14 +22,14 @@ namespace Beetle.Count
         [SerializeField] float waitTime = 0;
 
         //creates beetle GameObject
-        public GameObject beetle;
+        public beetleScript beetle;
 
         //creates float for the amount of beetles to clone
         public float beetlesToclone;
 
         //sets a spawnpoint and creates a GameObject for the cloned beetle
         public GameObject spawnPoint;
-        public GameObject clone;
+        public beetleScript clone;
 
         //creates isPressed variables from ActionButtons script
         public ActionButtons sciIsPressed;
@@ -68,10 +68,11 @@ namespace Beetle.Count
             if (beetleCount >= 0)
             {
                 //sets the spawnpoint as a previous beetle
-                spawnPoint = beetle;
+                //spawnPoint = beetle;
                 //clones a new beetle or beetles based on the spawnpoint
-                clone = Instantiate(spawnPoint, transform.position, transform.rotation);
-                clone.SetActive(true);
+                clone = Instantiate(beetle, transform.position, transform.rotation);
+                clone.CreateID(beetleCount);
+                clone.gameObject.SetActive(true);
                 //increases the beetleCount by number spawned
                 beetleCount++;
                 
@@ -95,11 +96,30 @@ namespace Beetle.Count
             //if buttons are pressed, lowers beetleCount by 125
             if (sciIsPressed.isPressed)
             {
+                beetleScript[] allBeetles = FindObjectsOfType<beetleScript>();
+                foreach (beetleScript beetle  in allBeetles)
+                {
+                    if (beetle.GetBeetleID() > beetleCount -125 && beetle.GetBeetleID() < beetleCount)
+                    {
+                        Destroy(beetle.gameObject);
+                    }
+                }
+
                 beetleCount = beetleCount - 125;
                 Debug.Log(beetleCount);
             }
+
             if (pestIsPressed.isPressed)
             {
+                beetleScript[] allBeetles = FindObjectsOfType<beetleScript>();
+                foreach (beetleScript beetle in allBeetles)
+                {
+                    if (beetle.GetBeetleID() > beetleCount - 125 && beetle.GetBeetleID() < beetleCount)
+                    {
+                        Destroy(beetle.gameObject);
+                    }
+                }
+
                 beetleCount = beetleCount - 125;
                 Debug.Log(beetleCount);
             }
